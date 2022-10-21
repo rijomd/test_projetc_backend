@@ -35,7 +35,7 @@ async function getCategoryList(req, res) {
         let response = await categoryService.getCategoryList(query);
         res.status(200).json({
             error_code: 0,
-            message: process.env.SUCCESS,
+            message: "Success",
             data: response.data
         });
     } catch (error) {
@@ -56,7 +56,7 @@ async function getAllData(req, res) {
         let response = await categoryService.getAllData(query);
         res.status(200).json({
             error_code: 0,
-            message: process.env.SUCCESS,
+            message: "Success",
             data: response.data
         });
     } catch (error) {

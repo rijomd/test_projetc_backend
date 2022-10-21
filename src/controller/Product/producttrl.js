@@ -10,7 +10,7 @@ async function addProduct(req, res) {
        let response = await productservice.addProduct(query);
         res.status(200).json({
             error_code: 0,
-            message: process.env.SUCCESS,
+            message: "Success",
             data: response.data
         });
 
@@ -34,7 +34,7 @@ async function getProductlist(req, res) {
         let response = await productservice.getProductlist(query);
         res.status(200).json({
             error_code: 0,
-            message: process.env.SUCCESS,
+            message: "Success",
             data: response.data
         });
     } catch (error) {

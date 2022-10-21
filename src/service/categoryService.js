@@ -87,13 +87,13 @@ async function getAllData(query) {
                 );
                 let count = await Products.find({ category: item._id }).count();
                 // if(count){
-                    catogoryArray.push(
-                        {
-                            _id: item._id,
-                            name: item.name,
-                            count: count
-                        }
-                    )
+                catogoryArray.push(
+                    {
+                        _id: item._id,
+                        name: item.name,
+                        count: count
+                    }
+                )
                 // }
             }
         }
@@ -113,6 +113,13 @@ async function getAllData(query) {
             productArray = await Products.find(newquery);
             productCounts = await Products.find(newquery).count();
 
+        }
+        if (categoryIds.length === 0) {
+            let newquery = {};
+            newquery.status = 1;
+            newquery.category = query.parent_id;
+            productArray = await Products.find(newquery);
+            productCounts = await Products.find(newquery).count();
         }
 
         console.log("productArray", productArray);
